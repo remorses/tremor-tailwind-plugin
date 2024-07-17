@@ -1,0 +1,38 @@
+{
+    "name": "website",
+    "private": true,
+    "sideEffects": false,
+    "type": "module",
+    "scripts": {
+        "build": "remix vite:build && pnpm copy-prisma",
+        "test": "vitest",
+        "dev": "remix vite:dev -p 4334",
+        "start": "PORT=4334 remix-serve ./build/server/index.js"
+    },
+    "dependencies": {
+        "@nextui-org/react": "2.4.2",
+        "@nextui-org/theme": "^2.2.6",
+        "@remix-run/node": "^2.9.2",
+        "@remix-run/react": "^2.9.2",
+        "tremor-tailwind-plugin": "workspace:*",
+        "@remix-run/serve": "^2.9.2",
+        "isbot": "^5.1.9",
+        "nprogress": "^0.2.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-hot-toast": "^2.4.1",
+        "vite-plugin-inspect": "^0.8.4"
+    },
+    "devDependencies": {
+        "@remix-run/dev": "^2.9.2",
+        "@types/node": "^20.14.2",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "vite": "^5.3.1",
+        "vite-plugin-environment": "^1.1.3",
+        "vite-tsconfig-paths": "^4.3.2"
+    },
+    "engines": {
+        "node": ">=20.0.0"
+    }
+}

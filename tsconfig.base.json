@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "commonjs",
+        "allowJs": false,
+        "composite": true,
+        "outDir": "${configDir}/dist",
+        "rootDir": "${configDir}/src",
+        "moduleResolution": "Node",
+        "lib": [
+            "es2022",
+            "es2017",
+            "es7",
+            "es6"
+            // "dom"
+        ],
+        "declaration": true,
+        "declarationMap": true,
+        "strict": true,
+        "downlevelIteration": true,
+        "esModuleInterop": true,
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "jsx": "react-jsx",
+        "skipLibCheck": true
+    },
+    "exclude": ["**/node_modules", "**/.*/"]
+}
