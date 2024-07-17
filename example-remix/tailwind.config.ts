@@ -1,3 +1,4 @@
+import { tremorPlugin } from 'tremor-tailwind-plugin'
 import { nextui } from '@nextui-org/react'
 
 /** @type {import('tailwindcss/tailwind-config').TailwindConfig} */
@@ -5,8 +6,7 @@ export default {
     mode: 'jit',
     content: [
         './src/**/*.{js,ts,jsx,tsx}',
-        './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
-        // '../beskar/src/**/*.{js,ts,jsx,tsx}',
+        './node_modules/@tremor/**/*.{js,ts,jsx,tsx}',
     ],
     darkMode: 'class',
     theme: {
@@ -18,17 +18,8 @@ export default {
         extend: {},
     },
     plugins: [
-        nextui({
-            // themes: {
-            //     light: {
-            //         colors: {
-            //             primary: {
-            //                 DEFAULT: colors.sky[600],
-            //                 // foreground: '#000000',
-            //             },
-            //         },
-            //     },
-            // },
-        }),
+        tremorPlugin({}),
+        require('@headlessui/tailwindcss'),
+        require('@tailwindcss/forms'),
     ],
 }

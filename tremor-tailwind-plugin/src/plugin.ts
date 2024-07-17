@@ -71,19 +71,21 @@ interface TremorPluginOptions {
 }
 
 const convertConfigToTheme = (config: TremorPluginOptions['themes']) => {
-    const theme: Partial<CustomThemeConfig> = {}
+    const theme: Partial<CustomThemeConfig> = {
+        colors: { tremor: {} },
+    }
     if (!config) return theme
 
-    if (config.light) {
-        theme.light = {
-            colors: config.light.colors,
-        }
+    if (config.light?.colors) {
+        theme.colors!['tremor'] = convertObjectKeysToKebabCase(
+            config.light.colors,
+        )
     }
 
-    if (config.dark) {
-        theme.dark = {
-            colors: config.dark.colors,
-        }
+    if (config.dark?.colors) {
+        theme.colors!['tremor-dark'] = convertObjectKeysToKebabCase(
+            config.dark.colors,
+        )
     }
 
     if (config.boxShadow) {
@@ -218,6 +220,7 @@ export const tremorPlugin = plugin.withOptions<TremorPluginOptions>(
         const mergedThemes = deepMerge(defaultTheme, themes)
 
         const theme = convertConfigToTheme(mergedThemes)
+        // console.log(JSON.stringify(theme, null, 2))
         return {
             theme: {
                 extend: {
