@@ -220,7 +220,7 @@ export const tremorPlugin = plugin.withOptions<TremorPluginOptions>(
         const mergedThemes = deepMerge(defaultTheme, themes)
 
         const theme = convertConfigToTheme(mergedThemes)
-        console.log(JSON.stringify(theme, null, 2))
+        // console.log(JSON.stringify(theme, null, 2))
         return {
             theme: {
                 extend: {
