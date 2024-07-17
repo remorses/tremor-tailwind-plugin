@@ -1,5 +1,5 @@
 import type { MetaFunction } from '@remix-run/node'
-import { Callout } from '@tremor/react'
+import { BarList, Callout } from '@tremor/react'
 
 import { AreaChart } from '@tremor/react'
 
@@ -8,17 +8,16 @@ const dataFormatter = (number) =>
 
 export default function Index() {
     return (
-        <div className='flex flex-col gap-6 h-full items-center'>
-            <AreaChart
-                className='h-80'
-                data={chartdata}
-                index='date'
-                categories={['SolarPanels', 'Inverters']}
-                colors={['indigo', 'rose']}
-                valueFormatter={dataFormatter}
-                yAxisWidth={60}
-                onValueChange={(v) => console.log(v)}
+        <div className='flex flex-col gap-6 h-full p-12'>
+            <BarList
+                data={[
+                    { name: '/home', value: 456 },
+                    { name: '/imprint', value: 351 },
+                    { name: '/cancellation', value: 51 },
+                ]}
+                className=' max-w-sm'
             />
+
             <div className=''></div>
             <div className='mx-auto max-w-lg space-y-6'>
                 <Callout title='Sales Performance' color='red'>

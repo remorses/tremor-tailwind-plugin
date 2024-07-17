@@ -1,5 +1,5 @@
+import colors from 'tailwindcss/colors'
 import { tremorPlugin } from 'tremor-tailwind-plugin'
-import { nextui } from '@nextui-org/react'
 
 /** @type {import('tailwindcss/tailwind-config').TailwindConfig} */
 export default {
@@ -18,7 +18,22 @@ export default {
         extend: {},
     },
     plugins: [
-        tremorPlugin({}),
+        tremorPlugin({
+            themes: {
+                light: {
+                    colors: {
+                        brand: {
+                            DEFAULT: colors.gray[600],
+                            emphasis: colors.gray[700],
+                            inverted: colors.white,
+                            faint: colors.gray[100],
+                            muted: colors.gray[300],
+                            subtle: colors.gray[200],
+                        },
+                    },
+                },
+            },
+        }),
         require('@headlessui/tailwindcss'),
         require('@tailwindcss/forms'),
     ],

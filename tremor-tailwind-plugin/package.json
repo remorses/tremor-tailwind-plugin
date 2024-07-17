@@ -8,6 +8,7 @@
     "repository": "https://github.com/remorses/",
     "scripts": {
         "build": "tsc",
+        "prepublishOnly": "pnpm build",
         "watch": "tsc -w"
     },
     "files": [
@@ -20,5 +21,8 @@
     "license": "",
     "dependencies": {
         "tailwindcss": "^3.4.6"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.2"
     }
 }
